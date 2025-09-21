@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Tạo Số May Mắn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "canvas-confetti": "https://esm.sh/canvas-confetti@1.9.2"
+      }
+    }
+  </script>
+  <script type="module" src="index.tsx"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 data-i18n="header">TẠO SỐ MAY MẮN</h1>
+      <div class="language-switcher">
+        <span>VIE</span>
+        <label class="switch">
+          <input type="checkbox" id="lang-toggle">
+          <span class="slider"></span>
+        </label>
+        <span>ENG</span>
+      </div>
+    </header>
+    
+    <main class="card">
+      <div class="input-group">
+        <div class="input-field">
+          <label for="min-number" data-i18n="minLabel">Từ số (Min)</label>
+          <div class="number-input-container">
+            <button class="stepper-btn" id="min-minus" aria-label="Decrease Min value">-</button>
+            <input type="number" id="min-number" value="1">
+            <button class="stepper-btn" id="min-plus" aria-label="Increase Min value">+</button>
+          </div>
+        </div>
+        <div class="input-field">
+          <label for="max-number" data-i18n="maxLabel">Đến số (Max)</label>
+          <div class="number-input-container">
+            <button class="stepper-btn" id="max-minus" aria-label="Decrease Max value">-</button>
+            <input type="number" id="max-number" value="100">
+            <button class="stepper-btn" id="max-plus" aria-label="Increase Max value">+</button>
+          </div>
+        </div>
+      </div>
+      
+      <button id="generate-btn" class="btn btn-primary">
+        <span data-i18n="generateButton">Bấm để nhận số</span> 🍀
+      </button>
+      
+      <div id="result-container" class="result-container" aria-live="polite">
+        <p id="result-placeholder" data-i18n="resultPlaceholder">Chúc bạn may mắn!</p>
+        <p id="result-number" class="result-number"></p>
+      </div>
+
+       <div id="error-message" class="error-message" role="alert"></div>
+
+      <div class="controls">
+        <button id="copy-btn" class="btn btn-secondary" disabled>
+          <span data-i18n="copyButton">Sao chép</span>
+        </button>
+        <button id="reset-btn" class="btn btn-secondary">
+          <span data-i18n="resetButton">Làm mới</span>
+        </button>
+      </div>
+    </main>
+    
+    <section class="card history-card">
+      <h2 data-i18n="historyTitle">Lịch sử</h2>
+      <ul id="history-list">
+        <li id="history-placeholder" data-i18n="historyPlaceholder">Chưa có số nào được tạo.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p data-i18n="footer">App dùng một lần – tạo niềm vui nho nhỏ ❤️</p>
+    </footer>
+  </div>
+</body>
+</html>
